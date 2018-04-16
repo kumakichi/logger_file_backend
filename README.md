@@ -43,7 +43,8 @@ config :logger,
 # configuration for the {LoggerFileBackend, :error_log} backend
 config :logger, :error_log,
   path: "/var/log/my_app/error.log",
-  level: :error
+  level: :error,
+  match_level: true # only level(:error) will be recorded, others (like :info, :debug...) will be filtered out
 ```
 
 Check out the examples below for runtime configuration and configuration for
@@ -84,7 +85,8 @@ config :logger, :info,
 
 config :logger, :error,
   path: "/path/to/error.log",
-  level: :error
+  level: :error,
+  match_level: true # only level(:error) will be recorded, others (like :info, :debug...) will be filtered out
 ```
 #### Filtering specific metadata terms
 
